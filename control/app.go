@@ -9,5 +9,5 @@ type App struct {
 
 // Launch launches the app on the TV. It returns the ID of the new session
 func (app *App) Launch() (string, error) {
-	return app.tv.LaunchApp(app.ID)
+	return app.tv.LaunchApp(app.ID, map[string]interface{}{})
 }

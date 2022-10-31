@@ -331,9 +331,10 @@ func (tv *LgTv) ListInstalledApps() ([]App, error) {
 
 // LaunchApp launches the app with the provided ID. If successfully launched,
 // it returns the ID of the new session
-func (tv *LgTv) LaunchApp(appID string) (string, error) {
+func (tv *LgTv) LaunchApp(appID string, params interface{}) (string, error) {
 	payload := connection.LaunchAppPayload{
-		ID: appID,
+		ID:         appID,
+		Parameters: params,
 	}
 	var respPayload connection.LaunchAppResponsePayload
 	err := tv.doRequest(uriLaunchApp, payload, &respPayload)
